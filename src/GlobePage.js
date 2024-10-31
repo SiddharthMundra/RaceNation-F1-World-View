@@ -9,11 +9,13 @@ function GlobePage() {
     const [countries, setCountries] = useState([]);
 
     useEffect(() => {
-        // Fetch country data
         fetch('https://unpkg.com/world-atlas@2/countries-50m.json')
             .then((res) => res.json())
             .then((worldData) => {
-                const countryFeatures = topojson.feature(worldData, worldData.objects.countries).features;
+                const countryFeatures = topojson.feature(
+                    worldData,
+                    worldData.objects.countries
+                ).features;
                 setCountries(countryFeatures);
             });
     }, []);
@@ -29,11 +31,17 @@ function GlobePage() {
                 polygonCapColor={() => 'rgba(38, 166, 154, 0.6)'}
                 polygonSideColor={() => 'rgba(38, 166, 154, 0.15)'}
                 polygonStrokeColor={() => '#111'}
+                polygonLabel={({ properties: d }) => `${d.name}`}
                 onPolygonClick={(country) => {
-                    const countryCode = country.properties.ISO_A2;
-                    navigate(`/country/${countryCode}`);
+                    const countryName = country.properties.name;
+                    if (countryName) {
+                        // Encode the country name to handle spaces and special characters
+                        const encodedCountryName = encodeURIComponent(countryName);
+                        navigate(`/country/${encodedCountryName}`);
+                    } else {
+                        console.error('Country name is undefined.');
+                    }
                 }}
-                polygonLabel={({ properties: d }) => `${d.ADMIN} (${d.ISO_A2})`}
             />
         </div>
     );

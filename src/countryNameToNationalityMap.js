@@ -1,0 +1,32 @@
+const countryNameToNationality = {
+    "United States of America": 'American',
+    'United Kingdom': 'British',
+    Germany: 'German',
+    France: 'French',
+    Italy: 'Italian',
+    Spain: 'Spanish',
+    Brazil: 'Brazilian',
+    Australia: 'Australian',
+    Canada: 'Canadian',
+    Finland: 'Finnish',
+    Sweden: 'Swedish',
+    Netherlands: 'Dutch',
+    Japan: 'Japanese',
+    Mexico: 'Mexican',
+    Russia: 'Russian',
+    Belgium: 'Belgian',
+    Austria: 'Austrian',
+    Argentina: 'Argentine',
+    'South Africa': 'South African',
+    'New Zealand': 'New Zealander',
+    Switzerland: 'Swiss',
+    Ireland: 'Irish',
+    Denmark: 'Danish',
+    Hungary: 'Hungarian',
+    Poland: 'Polish',
+    Portugal: 'Portuguese',
+    India: 'Indian',
+    // Add more mappings as needed
+};
+
+export default countryNameToNationality;

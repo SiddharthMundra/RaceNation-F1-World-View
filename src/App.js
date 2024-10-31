@@ -7,7 +7,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<GlobePage />} />
-      <Route path="/country/:countryCode" element={<CountryPage />} />
+      <Route path="/country/:countryName" element={<CountryPage />} />
     </Routes>
   );
 }
